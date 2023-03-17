@@ -33,8 +33,10 @@ public class FileManager {
     }
     public void write(String file, List<String> buffer)  throws Exception {
         try(BufferedWriter stream = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file), charsetWin1251))) {
-            for(String line: buffer)
+            for(String line: buffer) {
                 stream.write(line);
+                stream.newLine();
+            }
         }
     }
 }

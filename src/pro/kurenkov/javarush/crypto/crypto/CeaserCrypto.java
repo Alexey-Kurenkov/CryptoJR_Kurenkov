@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CeaserCrypto implements Crypto {
-    final private static String dictStr = "абвгдеёжзийклмнопрстуфхцчшщэюяАБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЭЮЯ.,:-!? ";
+    final private static String dictStr = "абвгдеёжзийклмнопрстуфхцчшщъыьэюяАБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ."+String.valueOf('"')+",:-!? ";
     final private static char[] dictArr = dictStr.toCharArray();
     private long key;
 
@@ -57,7 +57,7 @@ public class CeaserCrypto implements Crypto {
     }
 
     @Override
-    public long brutforce(List<String> source) {
+    public long brutforce(List<String> source, List<String> words) {
         return key;
     }
     @Override
@@ -67,5 +67,8 @@ public class CeaserCrypto implements Crypto {
     @Override
     public void setKey(long key) {
         this.key = key;
+    }
+    public long getDictLen() {
+        return dictArr.length;
     }
 }
